@@ -14,7 +14,6 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var inputText: UITextView!
     @IBOutlet weak var sentimentButton: UIButton!
     @IBOutlet weak var sentimentProgress: KDCircularProgress!
-    @IBOutlet weak var sentimentLabel: UILabel!
     
     
     override func viewWillLayoutSubviews() {

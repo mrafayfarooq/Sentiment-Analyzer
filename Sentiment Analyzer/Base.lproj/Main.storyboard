@@ -73,12 +73,6 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="lerpColorMode" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5l5-QP-25h">
-                                <rect key="frame" x="167" y="546" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="9C3-5I-yde">
                                 <rect key="frame" x="113" y="315" width="150" height="37"/>
                                 <color key="color" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
@@ -89,13 +83,11 @@
                             <constraint firstItem="nDb-hJ-Ye4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="03W-td-xD6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Fvg-Es-CLb" secondAttribute="trailing" constant="60" id="0Ng-dL-w5I"/>
                             <constraint firstItem="nDb-hJ-Ye4" firstAttribute="top" secondItem="OpP-oO-j9K" secondAttribute="bottom" constant="20" id="BXS-g4-b03"/>
-                            <constraint firstItem="5l5-QP-25h" firstAttribute="top" secondItem="l5m-1A-pXp" secondAttribute="bottom" constant="8" id="DMm-9L-O3V"/>
                             <constraint firstItem="Fvg-Es-CLb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="60" id="Nbo-rz-pRz"/>
                             <constraint firstItem="nDb-hJ-Ye4" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="OWU-Dn-P1Z"/>
                             <constraint firstItem="Fvg-Es-CLb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="XGg-yi-Ovm"/>
                             <constraint firstItem="Fvg-Es-CLb" firstAttribute="top" secondItem="nDb-hJ-Ye4" secondAttribute="bottom" constant="25" id="Yzc-kU-RRu"/>
                             <constraint firstItem="9C3-5I-yde" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZUN-Yp-JNn"/>
-                            <constraint firstItem="5l5-QP-25h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZXq-mf-Bqf"/>
                             <constraint firstItem="9C3-5I-yde" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aBD-rU-fLd"/>
                             <constraint firstItem="OpP-oO-j9K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="exa-9x-4Pa"/>
                             <constraint firstItem="l5m-1A-pXp" firstAttribute="top" secondItem="Fvg-Es-CLb" secondAttribute="bottom" constant="40" id="olh-K6-w9J"/>
@@ -110,7 +102,6 @@
                         <outlet property="indicator" destination="9C3-5I-yde" id="5Mh-7F-UpP"/>
                         <outlet property="inputText" destination="nDb-hJ-Ye4" id="qTc-JU-awx"/>
                         <outlet property="sentimentButton" destination="Fvg-Es-CLb" id="1Vp-gN-Kko"/>
-                        <outlet property="sentimentLabel" destination="5l5-QP-25h" id="9nf-S5-Nut"/>
                         <outlet property="sentimentProgress" destination="l5m-1A-pXp" id="y0I-ot-G8r"/>
                     </connections>
                 </viewController>
