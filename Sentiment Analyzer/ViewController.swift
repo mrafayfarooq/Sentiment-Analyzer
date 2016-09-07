@@ -15,6 +15,8 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var sentimentButton: UIButton!
     @IBOutlet weak var sentimentProgress: KDCircularProgress!
     @IBOutlet weak var sentimentLabel: UILabel!
+    
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         sentimentButton.layer.cornerRadius = 10
@@ -36,6 +38,10 @@ class ViewController: UIViewController, UITextViewDelegate {
     func textViewDidBeginEditing(textView: UITextView) {
         textView.text = ""
         textView.textColor = UIColor.blackColor()
+    }
+    // MARK: Utility Functions
+    func hasText() -> Bool {
+        return inputText.text.characters.count > 20
     }
    
     
@@ -163,6 +169,18 @@ class ViewController: UIViewController, UITextViewDelegate {
         }
         return (normalizeScore + 10)/40
     }
+    func startAnalysis(tokensAfterStopWords:Set<String>,negaitveWords:[String],positiveWords:[String],negations:[String],dictionary:Dictionary<String,Int>) {
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            let sentimentScore = self.findSentimentScore(tokensAfterStopWords, negaitveWords:negaitveWords, positiveWords: positiveWords,negations:negations, dictionary:dictionary)
+            dispatch_async(dispatch_get_main_queue()) {
+                self.stopIndicator()
+                let normalizeScore = self.scoreCalculator(sentimentScore)
+                self.progressLoader(normalizeScore)
+            }
+        }
+
+    }
     
     //MARK: Loader
     func progressLoader(newAngle:Double) {
@@ -181,23 +199,22 @@ class ViewController: UIViewController, UITextViewDelegate {
     //MARK: IBA Action
     @IBAction func findAspectButtonPressed(sender: AnyObject) {
         print("Find Aspects button pressed")
-        showIndicator();
-        let tokenize = doTokenization(inputText.text)
-        let stopWords = readStopWords("Stopword-List")
-        let tokensAfterStopWords = filterStopWords(tokenize, stopWords: stopWords)
-        let dictionary = readDictionary()
-        
-        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            let sentimentScore = self.findSentimentScore(tokensAfterStopWords, negaitveWords: dictionary.negaitveWords, positiveWords: dictionary.positiveWords,negations:dictionary.negations, dictionary: dictionary.dictionary)
-            dispatch_async(dispatch_get_main_queue()) {
-                self.stopIndicator()
-                let normalizeScore = self.scoreCalculator(sentimentScore)
-                self.progressLoader(normalizeScore)
+        if hasText() {
+            showIndicator();
+            let tokenize = doTokenization(inputText.text)
+            let stopWords = readStopWords("Stopword-List")
+            let tokensAfterStopWords = filterStopWords(tokenize, stopWords: stopWords)
+            let dictionary = readDictionary()
+            startAnalysis(tokensAfterStopWords, negaitveWords: dictionary.negaitveWords, positiveWords: dictionary.positiveWords, negations: dictionary.negations, dictionary: dictionary.dictionary)
             }
+        else {
+            let alert = UIAlertController(title: "Alert", message: "Please type atleast 25 characters to start analysis!", preferredStyle: UIAlertControllerStyle.Alert)
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
+                print("OK") }
+            alert.addAction(okAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+
         }
-        
-    
     }
 
 }
