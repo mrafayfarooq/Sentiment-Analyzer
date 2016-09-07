@@ -1,0 +1,388 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D635E72C1D7F65CA00BF5629 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = D635E72B1D7F65CA00BF5629 /* KDCircularProgress.swift */; };
+		D635E72E1D80915B00BF5629 /* Stopword-List.txt in Resources */ = {isa = PBXBuildFile; fileRef = D635E72D1D80915B00BF5629 /* Stopword-List.txt */; };
+		D635E7361D809E6500BF5629 /* negated-words.txt in Resources */ = {isa = PBXBuildFile; fileRef = D635E7351D809E6500BF5629 /* negated-words.txt */; };
+		D635E7381D809EA100BF5629 /* negative-words.txt in Resources */ = {isa = PBXBuildFile; fileRef = D635E7371D809EA100BF5629 /* negative-words.txt */; };
+		D6A2691C1D7671AE006D437F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2691B1D7671AE006D437F /* AppDelegate.swift */; };
+		D6A2691E1D7671AE006D437F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2691D1D7671AE006D437F /* ViewController.swift */; };
+		D6A269211D7671AE006D437F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6A2691F1D7671AE006D437F /* Main.storyboard */; };
+		D6A269231D7671AE006D437F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6A269221D7671AE006D437F /* Assets.xcassets */; };
+		D6A269261D7671AE006D437F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6A269241D7671AE006D437F /* LaunchScreen.storyboard */; };
+		D6A269311D7671AF006D437F /* Sentiment_AnalyzerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A269301D7671AF006D437F /* Sentiment_AnalyzerUITests.swift */; };
+		D6A269421D7DEE8D006D437F /* positive-words.txt in Resources */ = {isa = PBXBuildFile; fileRef = D6A269401D7DEE8D006D437F /* positive-words.txt */; };
+		D6A269441D7DFF0F006D437F /* AFINN-111.txt in Resources */ = {isa = PBXBuildFile; fileRef = D6A269431D7DFF0F006D437F /* AFINN-111.txt */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D6A2692D1D7671AF006D437F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6A269101D7671AE006D437F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D6A269171D7671AE006D437F;
+			remoteInfo = "Sentiment Analyzer";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		684AA8C229B4670232FE3E6F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D635E72B1D7F65CA00BF5629 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KDCircularProgress.swift; path = "../../../../Downloads/KDCircularProgress-master/KDCircularProgress/KDCircularProgress.swift"; sourceTree = "<group>"; };
+		D635E72D1D80915B00BF5629 /* Stopword-List.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Stopword-List.txt"; path = "../../../../Downloads/FYPSentimentTool/stopwords/Stopword-List.txt"; sourceTree = "<group>"; };
+		D635E7351D809E6500BF5629 /* negated-words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "negated-words.txt"; sourceTree = "<group>"; };
+		D635E7371D809EA100BF5629 /* negative-words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "negative-words.txt"; sourceTree = "<group>"; };
+		D6A269181D7671AE006D437F /* Sentiment Analyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sentiment Analyzer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6A2691B1D7671AE006D437F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D6A2691D1D7671AE006D437F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D6A269201D7671AE006D437F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D6A269221D7671AE006D437F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D6A269251D7671AE006D437F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D6A269271D7671AE006D437F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6A2692C1D7671AF006D437F /* Sentiment AnalyzerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sentiment AnalyzerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6A269301D7671AF006D437F /* Sentiment_AnalyzerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentiment_AnalyzerUITests.swift; sourceTree = "<group>"; };
+		D6A269321D7671AF006D437F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6A269401D7DEE8D006D437F /* positive-words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "positive-words.txt"; path = "../../../../Downloads/FYPSentimentTool/csuic/positive-words.txt"; sourceTree = "<group>"; };
+		D6A269431D7DFF0F006D437F /* AFINN-111.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "AFINN-111.txt"; path = "../../../../Downloads/FYPSentimentTool/AFINN/AFINN-111.txt"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D6A269151D7671AE006D437F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6A269291D7671AF006D437F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		551A5D1BE1ABBAA9DBF24CED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				684AA8C229B4670232FE3E6F /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D635E7311D809B3700BF5629 /* Dictionaries */ = {
+			isa = PBXGroup;
+			children = (
+				D6A269401D7DEE8D006D437F /* positive-words.txt */,
+				D635E7371D809EA100BF5629 /* negative-words.txt */,
+				D6A269431D7DFF0F006D437F /* AFINN-111.txt */,
+			);
+			name = Dictionaries;
+			sourceTree = "<group>";
+		};
+		D635E7321D809B4C00BF5629 /* StopWords&Negations */ = {
+			isa = PBXGroup;
+			children = (
+				D635E72D1D80915B00BF5629 /* Stopword-List.txt */,
+				D635E7351D809E6500BF5629 /* negated-words.txt */,
+			);
+			name = "StopWords&Negations";
+			sourceTree = "<group>";
+		};
+		D6A2690F1D7671AE006D437F = {
+			isa = PBXGroup;
+			children = (
+				D6A2691A1D7671AE006D437F /* Sentiment Analyzer */,
+				D6A2692F1D7671AF006D437F /* Sentiment AnalyzerUITests */,
+				D6A269191D7671AE006D437F /* Products */,
+				551A5D1BE1ABBAA9DBF24CED /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D6A269191D7671AE006D437F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D6A269181D7671AE006D437F /* Sentiment Analyzer.app */,
+				D6A2692C1D7671AF006D437F /* Sentiment AnalyzerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D6A2691A1D7671AE006D437F /* Sentiment Analyzer */ = {
+			isa = PBXGroup;
+			children = (
+				D635E72B1D7F65CA00BF5629 /* KDCircularProgress.swift */,
+				D6A2691B1D7671AE006D437F /* AppDelegate.swift */,
+				D6A2691D1D7671AE006D437F /* ViewController.swift */,
+				D6A2691F1D7671AE006D437F /* Main.storyboard */,
+				D6A269221D7671AE006D437F /* Assets.xcassets */,
+				D6A269241D7671AE006D437F /* LaunchScreen.storyboard */,
+				D6A269271D7671AE006D437F /* Info.plist */,
+				D635E7321D809B4C00BF5629 /* StopWords&Negations */,
+				D635E7311D809B3700BF5629 /* Dictionaries */,
+			);
+			path = "Sentiment Analyzer";
+			sourceTree = "<group>";
+		};
+		D6A2692F1D7671AF006D437F /* Sentiment AnalyzerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D6A269301D7671AF006D437F /* Sentiment_AnalyzerUITests.swift */,
+				D6A269321D7671AF006D437F /* Info.plist */,
+			);
+			path = "Sentiment AnalyzerUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D6A269171D7671AE006D437F /* Sentiment Analyzer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6A269351D7671AF006D437F /* Build configuration list for PBXNativeTarget "Sentiment Analyzer" */;
+			buildPhases = (
+				D6A269141D7671AE006D437F /* Sources */,
+				D6A269151D7671AE006D437F /* Frameworks */,
+				D6A269161D7671AE006D437F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sentiment Analyzer";
+			productName = "Sentiment Analyzer";
+			productReference = D6A269181D7671AE006D437F /* Sentiment Analyzer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D6A2692B1D7671AF006D437F /* Sentiment AnalyzerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6A269381D7671AF006D437F /* Build configuration list for PBXNativeTarget "Sentiment AnalyzerUITests" */;
+			buildPhases = (
+				D6A269281D7671AF006D437F /* Sources */,
+				D6A269291D7671AF006D437F /* Frameworks */,
+				D6A2692A1D7671AF006D437F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D6A2692E1D7671AF006D437F /* PBXTargetDependency */,
+			);
+			name = "Sentiment AnalyzerUITests";
+			productName = "Sentiment AnalyzerUITests";
+			productReference = D6A2692C1D7671AF006D437F /* Sentiment AnalyzerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D6A269101D7671AE006D437F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Muhammad Rafay";
+				TargetAttributes = {
+					D6A269171D7671AE006D437F = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = MFHRN6BMB5;
+					};
+					D6A2692B1D7671AF006D437F = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = MFHRN6BMB5;
+						TestTargetID = D6A269171D7671AE006D437F;
+					};
+				};
+			};
+			buildConfigurationList = D6A269131D7671AE006D437F /* Build configuration list for PBXProject "Sentiment Analyzer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D6A2690F1D7671AE006D437F;
+			productRefGroup = D6A269191D7671AE006D437F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D6A269171D7671AE006D437F /* Sentiment Analyzer */,
+				D6A2692B1D7671AF006D437F /* Sentiment AnalyzerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D6A269161D7671AE006D437F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6A269441D7DFF0F006D437F /* AFINN-111.txt in Resources */,
+				D635E72E1D80915B00BF5629 /* Stopword-List.txt in Resources */,
+				D6A269421D7DEE8D006D437F /* positive-words.txt in Resources */,
+				D6A269261D7671AE006D437F /* LaunchScreen.storyboard in Resources */,
+				D635E7361D809E6500BF5629 /* negated-words.txt in Resources */,
+				D635E7381D809EA100BF5629 /* negative-words.txt in Resources */,
+				D6A269231D7671AE006D437F /* Assets.xcassets in Resources */,
+				D6A269211D7671AE006D437F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6A2692A1D7671AF006D437F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D6A269141D7671AE006D437F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D635E72C1D7F65CA00BF5629 /* KDCircularProgress.swift in Sources */,
+				D6A2691E1D7671AE006D437F /* ViewController.swift in Sources */,
+				D6A2691C1D7671AE006D437F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6A269281D7671AF006D437F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6A269311D7671AF006D437F /* Sentiment_AnalyzerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D6A2692E1D7671AF006D437F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D6A269171D7671AE006D437F /* Sentiment Analyzer */;
+			targetProxy = D6A2692D1D7671AF006D437F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D6A2691F1D7671AE006D437F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6A269201D7671AE006D437F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D6A269241D7671AE006D437F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6A269251D7671AE006D437F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D6A269341D7671AF006D437F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D6A269371D7671AF006D437F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Sentiment Analyzer/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MuhammadRafay.Sentiment-Analyzer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Release;
+		};
+		D6A2693A1D7671AF006D437F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Sentiment AnalyzerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MuhammadRafay.Sentiment-AnalyzerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Sentiment Analyzer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D6A269131D7671AE006D437F /* Build configuration list for PBXProject "Sentiment Analyzer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6A269341D7671AF006D437F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6A269351D7671AF006D437F /* Build configuration list for PBXNativeTarget "Sentiment Analyzer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6A269371D7671AF006D437F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6A269381D7671AF006D437F /* Build configuration list for PBXNativeTarget "Sentiment AnalyzerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6A2693A1D7671AF006D437F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D6A269101D7671AE006D437F /* Project object */;
+}

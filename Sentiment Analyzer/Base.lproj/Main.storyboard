@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Sentiment_Analyzer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleAspectFit" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sentiment Analyzer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpP-oO-j9K">
+                                <rect key="frame" x="107" y="40" width="161" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nDb-hJ-Ye4" userLabel="Input Text View">
+                                <rect key="frame" x="19" y="81" width="338" height="212"/>
+                                <color key="backgroundColor" red="0.93133012820512817" green="0.93133012820512817" blue="0.93133012820512817" alpha="1" colorSpace="calibratedRGB"/>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvg-Es-CLb">
+                                <rect key="frame" x="76" y="318" width="223" height="32"/>
+                                <color key="backgroundColor" red="0.12522317250000001" green="0.66666666669999997" blue="0.2343514941" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Find Sentiment"/>
+                                <connections>
+                                    <action selector="findAspectButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ruy-aE-dGw"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="l5m-1A-pXp" customClass="KDCircularProgress" customModule="Sentiment_Analyzer" customModuleProvider="target">
+                                <rect key="frame" x="113" y="390" width="148" height="148"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="148" id="HBh-2X-0j3"/>
+                                    <constraint firstAttribute="height" constant="148" id="xSr-vS-qI1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
+                                        <color key="value" red="0.17254901959999999" green="0.27058823529999998" blue="0.33725490200000002" alpha="0.89865301720000001" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="progressInsideFillColor">
+                                        <color key="value" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="angle">
+                                        <real key="value" value="349"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                        <real key="value" value="-90"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="glowAmount">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
+                                        <color key="value" red="0.30918069370000001" green="1" blue="0.2528652475" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor3">
+                                        <color key="value" red="1" green="0.0" blue="0.037429042760000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="lerpColorMode" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5l5-QP-25h">
+                                <rect key="frame" x="167" y="546" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="9C3-5I-yde">
+                                <rect key="frame" x="113" y="315" width="150" height="37"/>
+                                <color key="color" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nDb-hJ-Ye4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="03W-td-xD6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fvg-Es-CLb" secondAttribute="trailing" constant="60" id="0Ng-dL-w5I"/>
+                            <constraint firstItem="nDb-hJ-Ye4" firstAttribute="top" secondItem="OpP-oO-j9K" secondAttribute="bottom" constant="20" id="BXS-g4-b03"/>
+                            <constraint firstItem="5l5-QP-25h" firstAttribute="top" secondItem="l5m-1A-pXp" secondAttribute="bottom" constant="8" id="DMm-9L-O3V"/>
+                            <constraint firstItem="Fvg-Es-CLb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="60" id="Nbo-rz-pRz"/>
+                            <constraint firstItem="nDb-hJ-Ye4" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="OWU-Dn-P1Z"/>
+                            <constraint firstItem="Fvg-Es-CLb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="XGg-yi-Ovm"/>
+                            <constraint firstItem="Fvg-Es-CLb" firstAttribute="top" secondItem="nDb-hJ-Ye4" secondAttribute="bottom" constant="25" id="Yzc-kU-RRu"/>
+                            <constraint firstItem="9C3-5I-yde" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZUN-Yp-JNn"/>
+                            <constraint firstItem="5l5-QP-25h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZXq-mf-Bqf"/>
+                            <constraint firstItem="9C3-5I-yde" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aBD-rU-fLd"/>
+                            <constraint firstItem="OpP-oO-j9K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="exa-9x-4Pa"/>
+                            <constraint firstItem="l5m-1A-pXp" firstAttribute="top" secondItem="Fvg-Es-CLb" secondAttribute="bottom" constant="40" id="olh-K6-w9J"/>
+                            <constraint firstItem="OpP-oO-j9K" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="rm4-RS-ESm"/>
+                            <constraint firstItem="Fvg-Es-CLb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="toA-AR-5Vj"/>
+                            <constraint firstItem="9C3-5I-yde" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="ul8-av-VnK"/>
+                            <constraint firstItem="l5m-1A-pXp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="v49-uz-Tlt"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="indicator" destination="9C3-5I-yde" id="5Mh-7F-UpP"/>
+                        <outlet property="inputText" destination="nDb-hJ-Ye4" id="qTc-JU-awx"/>
+                        <outlet property="sentimentButton" destination="Fvg-Es-CLb" id="1Vp-gN-Kko"/>
+                        <outlet property="sentimentLabel" destination="5l5-QP-25h" id="9nf-S5-Nut"/>
+                        <outlet property="sentimentProgress" destination="l5m-1A-pXp" id="y0I-ot-G8r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="302.5" y="292.5"/>
+        </scene>
+    </scenes>
+</document>
