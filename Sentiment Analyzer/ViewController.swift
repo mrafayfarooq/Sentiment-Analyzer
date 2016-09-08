@@ -15,19 +15,24 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var sentimentButton: UIButton!
     @IBOutlet weak var sentimentProgress: KDCircularProgress!
     
+    @IBOutlet weak var sentimentLabel: UILabel!
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        //To make round edges of button
         sentimentButton.layer.cornerRadius = 10
+        //Dismiss Keyboard if touched anywhere on screen
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Initializing label, progress angle and placeholder text
         inputText.delegate = self
         inputText.text = "Type Here!"
         inputText.textColor = UIColor.lightGrayColor()
         sentimentProgress.angle = 0
+        sentimentLabel.hidden = true
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -37,8 +42,10 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
     // MARK: Delegate Methods
     func textViewDidBeginEditing(textView: UITextView) {
-        textView.text = ""
-        textView.textColor = UIColor.blackColor()
+        if(textView.text == "Type Here!") {
+            textView.text = ""
+            textView.textColor = UIColor.blackColor()
+        }
     }
     //Calls this function when the tap is recognized.
     func dismissKeyboard() {
@@ -50,7 +57,6 @@ class ViewController: UIViewController, UITextViewDelegate {
         return inputText.text.characters.count > 20
     }
    
-    
     // MARK: Stop Word Function
     func readStopWords(fileName:String) -> [String] {
         let fileLocation = NSBundle.mainBundle().pathForResource(fileName, ofType: "txt")
@@ -66,9 +72,14 @@ class ViewController: UIViewController, UITextViewDelegate {
         let words = readStopWords.characters.split{$0 == "\r\n"}.map(String.init)
         return words
     }
-    func filterStopWords(tokens:[String], stopWords: [String]) -> Set<String> {
-        let tokensAfterStopWords = Set(tokens).subtract(Set(stopWords));
-        return tokensAfterStopWords;
+    func filterStopWords(tokens:[String], stopWords: [String]) -> [String] {
+        var tokenizeAfterStopWords = tokens
+        for word in tokens {
+            if stopWords.contains(word) {
+                tokenizeAfterStopWords = tokenizeAfterStopWords.filter{$0 != word}
+            }
+        }
+        return tokenizeAfterStopWords;
     }
     
     // MARK: Negations
@@ -143,7 +154,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
     
     //MARK: Sentiment Analysis
-    func findSentimentScore(tokens:Set<String>,negaitveWords:[String],positiveWords:[String],negations:[String],dictionary:Dictionary<String,Int>) -> Int {
+    func findSentimentScore(tokens:[String],negaitveWords:[String],positiveWords:[String],negations:[String],dictionary:Dictionary<String,Int>) -> Int {
         var sentimentScore = 0
         for word in tokens {
             let result = dictionary[word]
@@ -166,16 +177,27 @@ class ViewController: UIViewController, UITextViewDelegate {
         return sentimentScore;
     }
     func scoreCalculator(sentimentScore:Int) -> Double {
-        var normalizeScore:Double = 0.0
+        var normalizeScore:Double = Double(sentimentScore)
+
         if(sentimentScore < 0) {
-            normalizeScore = Double(abs(sentimentScore))
+            sentimentLabel.text = "Negative!"
+            return (120 + (4 * Double(abs(sentimentScore))))
+        }
+        else if(sentimentScore > 10) {
+            normalizeScore = normalizeScore - (normalizeScore - 9)
+            sentimentLabel.text = "Positive!"
+            return normalizeScore*13
+        }
+        else if (sentimentScore == 0) {
+            sentimentLabel.text = "Neutral!"
+            return normalizeScore
         }
         else {
-            normalizeScore = Double(sentimentScore)
+            sentimentLabel.text = "Positive!"
+            return normalizeScore * 13
         }
-        return (normalizeScore + 10)/40
     }
-    func startAnalysis(tokensAfterStopWords:Set<String>,negaitveWords:[String],positiveWords:[String],negations:[String],dictionary:Dictionary<String,Int>) {
+    func startAnalysis(tokensAfterStopWords:[String],negaitveWords:[String],positiveWords:[String],negations:[String],dictionary:Dictionary<String,Int>) {
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
             let sentimentScore = self.findSentimentScore(tokensAfterStopWords, negaitveWords:negaitveWords, positiveWords: positiveWords,negations:negations, dictionary:dictionary)
@@ -183,6 +205,7 @@ class ViewController: UIViewController, UITextViewDelegate {
                 self.stopIndicator()
                 let normalizeScore = self.scoreCalculator(sentimentScore)
                 self.progressLoader(normalizeScore)
+                self.sentimentLabel.hidden = false
             }
         }
 
@@ -190,7 +213,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     //MARK: Loader
     func progressLoader(newAngle:Double) {
-        sentimentProgress.animateToAngle(360*(newAngle/4.0), duration: 2, completion: nil)
+        sentimentProgress.animateToAngle(newAngle, duration: 1, completion: nil)
     }
     func showIndicator() {
         indicator.hidden = false
@@ -202,24 +225,28 @@ class ViewController: UIViewController, UITextViewDelegate {
         indicator.stopAnimating()
         view.alpha = 1
     }
+    //MARK: Alerts
+    func showAlert() {
+        let alert = UIAlertController(title: "Alert", message: "Please type atleast 25 characters to start analysis!", preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
+            print("OK") }
+        alert.addAction(okAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
     //MARK: IBA Action
     @IBAction func findAspectButtonPressed(sender: AnyObject) {
         print("Find Aspects button pressed")
         if hasText() {
             showIndicator();
-            let tokenize = doTokenization(inputText.text)
+            dismissKeyboard()
+            let tokenize = doTokenization(inputText.text.lowercaseString)
             let stopWords = readStopWords("Stopword-List")
             let tokensAfterStopWords = filterStopWords(tokenize, stopWords: stopWords)
             let dictionary = readDictionary()
             startAnalysis(tokensAfterStopWords, negaitveWords: dictionary.negaitveWords, positiveWords: dictionary.positiveWords, negations: dictionary.negations, dictionary: dictionary.dictionary)
             }
         else {
-            let alert = UIAlertController(title: "Alert", message: "Please type atleast 25 characters to start analysis!", preferredStyle: UIAlertControllerStyle.Alert)
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-                print("OK") }
-            alert.addAction(okAction)
-            self.presentViewController(alert, animated: true, completion: nil)
-
+            showAlert()
         }
     }
 

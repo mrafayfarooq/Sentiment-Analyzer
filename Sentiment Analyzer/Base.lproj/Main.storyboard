@@ -73,6 +73,12 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="lerpColorMode" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMk-Dz-p1y">
+                                <rect key="frame" x="187" y="464" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="9C3-5I-yde">
                                 <rect key="frame" x="113" y="315" width="150" height="37"/>
                                 <color key="color" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
@@ -89,10 +95,12 @@
                             <constraint firstItem="Fvg-Es-CLb" firstAttribute="top" secondItem="nDb-hJ-Ye4" secondAttribute="bottom" constant="25" id="Yzc-kU-RRu"/>
                             <constraint firstItem="9C3-5I-yde" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZUN-Yp-JNn"/>
                             <constraint firstItem="9C3-5I-yde" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aBD-rU-fLd"/>
+                            <constraint firstItem="aMk-Dz-p1y" firstAttribute="centerY" secondItem="l5m-1A-pXp" secondAttribute="centerY" id="dFm-9U-euq"/>
                             <constraint firstItem="OpP-oO-j9K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="exa-9x-4Pa"/>
                             <constraint firstItem="l5m-1A-pXp" firstAttribute="top" secondItem="Fvg-Es-CLb" secondAttribute="bottom" constant="40" id="olh-K6-w9J"/>
                             <constraint firstItem="OpP-oO-j9K" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="rm4-RS-ESm"/>
                             <constraint firstItem="Fvg-Es-CLb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="toA-AR-5Vj"/>
+                            <constraint firstItem="aMk-Dz-p1y" firstAttribute="centerX" secondItem="l5m-1A-pXp" secondAttribute="centerX" id="tw3-QX-wiS"/>
                             <constraint firstItem="9C3-5I-yde" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="ul8-av-VnK"/>
                             <constraint firstItem="l5m-1A-pXp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="v49-uz-Tlt"/>
                         </constraints>
@@ -102,6 +110,7 @@
                         <outlet property="indicator" destination="9C3-5I-yde" id="5Mh-7F-UpP"/>
                         <outlet property="inputText" destination="nDb-hJ-Ye4" id="qTc-JU-awx"/>
                         <outlet property="sentimentButton" destination="Fvg-Es-CLb" id="1Vp-gN-Kko"/>
+                        <outlet property="sentimentLabel" destination="aMk-Dz-p1y" id="9Be-nc-XZB"/>
                         <outlet property="sentimentProgress" destination="l5m-1A-pXp" id="y0I-ot-G8r"/>
                     </connections>
                 </viewController>

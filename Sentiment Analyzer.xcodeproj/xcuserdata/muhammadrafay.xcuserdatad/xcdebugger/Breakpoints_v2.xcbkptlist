@@ -6,80 +6,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sentiment Analyzer/ViewController.swift"
-            timestampString = "494989107.861154"
+            timestampString = "495058240.267263"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "readDictionary()"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "filterStopWords(_:stopWords:)"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sentiment_Analyzer.ViewController.filterStopWords (Swift.Array&lt;Swift.String&gt;, stopWords : Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "Sentiment Analyzer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/muhammadrafay/Google%20Drive/Sentiment%20Analyzer/Sentiment%20Analyzer/Sentiment%20Analyzer/ViewController.swift"
+                  timestampString = "495056265.514976"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "544">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Sentiment_Analyzer.ViewController.(filterStopWords (Swift.Array&lt;Swift.String&gt;, stopWords : Swift.Array&lt;Swift.String&gt;) -&gt; Swift.Array&lt;Swift.String&gt;).(closure #1)"
+                  moduleName = "Sentiment Analyzer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/muhammadrafay/Google%20Drive/Sentiment%20Analyzer/Sentiment%20Analyzer/Sentiment%20Analyzer/ViewController.swift"
+                  timestampString = "495056265.515155"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sentiment Analyzer/ViewController.swift"
-            timestampString = "494989107.861154"
+            timestampString = "495058240.267263"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
-            landmarkName = "scoreCalculator(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sentiment Analyzer/ViewController.swift"
-            timestampString = "494989107.861154"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
-            landmarkName = "findAspectButtonPressed(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sentiment Analyzer/ViewController.swift"
-            timestampString = "494989107.861154"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "textViewDidBeginEditing(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sentiment Analyzer/ViewController.swift"
-            timestampString = "494989107.861154"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "hasText()"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "filterStopWords(_:stopWords:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
