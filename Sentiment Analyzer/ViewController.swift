@@ -19,6 +19,8 @@ class ViewController: UIViewController, UITextViewDelegate {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         sentimentButton.layer.cornerRadius = 10
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,11 @@ class ViewController: UIViewController, UITextViewDelegate {
         textView.text = ""
         textView.textColor = UIColor.blackColor()
     }
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }  
     // MARK: Utility Functions
     func hasText() -> Bool {
         return inputText.text.characters.count > 20
