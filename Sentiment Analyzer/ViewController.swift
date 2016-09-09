@@ -14,13 +14,14 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var inputText: UITextView!
     @IBOutlet weak var sentimentButton: UIButton!
     @IBOutlet weak var sentimentProgress: KDCircularProgress!
-    
+    @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var sentimentLabel: UILabel!
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         //To make round edges of button
         sentimentButton.layer.cornerRadius = 10
+        resetButton.layer.cornerRadius = 10
         //Dismiss Keyboard if touched anywhere on screen
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -31,8 +32,8 @@ class ViewController: UIViewController, UITextViewDelegate {
         inputText.delegate = self
         inputText.text = "Type Here!"
         inputText.textColor = UIColor.lightGrayColor()
-        sentimentProgress.angle = 0
-        sentimentLabel.hidden = true
+        setProgress(0)
+        hideSentimentLable(true)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -43,7 +44,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     // MARK: Delegate Methods
     func textViewDidBeginEditing(textView: UITextView) {
         if(textView.text == "Type Here!") {
-            textView.text = ""
+            resetText()
             textView.textColor = UIColor.blackColor()
         }
     }
@@ -56,11 +57,16 @@ class ViewController: UIViewController, UITextViewDelegate {
     func hasText() -> Bool {
         return inputText.text.characters.count > 20
     }
-   
+    func resetText() {
+        inputText.text = ""
+    }
+    func hideSentimentLable(flag:Bool) {
+        sentimentLabel.hidden = flag
+    }
     // MARK: Stop Word Function
     func readStopWords(fileName:String) -> [String] {
         let fileLocation = NSBundle.mainBundle().pathForResource(fileName, ofType: "txt")
-        var readStopWords = " ";
+        var readStopWords = " "
         do {
             readStopWords = try String(contentsOfFile: fileLocation!, encoding: NSUTF8StringEncoding)
         }
@@ -79,13 +85,13 @@ class ViewController: UIViewController, UITextViewDelegate {
                 tokenizeAfterStopWords = tokenizeAfterStopWords.filter{$0 != word}
             }
         }
-        return tokenizeAfterStopWords;
+        return tokenizeAfterStopWords
     }
     
     // MARK: Negations
     func readNegations(fileName:String) -> [String] {
         let fileLocation = NSBundle.mainBundle().pathForResource(fileName, ofType: "txt")
-        var readNegations = " ";
+        var readNegations = " "
         do {
             readNegations = try String(contentsOfFile: fileLocation!, encoding: NSUTF8StringEncoding)
         }
@@ -102,13 +108,13 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     // MARK: Tokenization
     func doTokenization(rawText: String) -> [String] {
-      return  rawText.componentsSeparatedByCharactersInSet(NSCharacterSet (charactersInString: "-,/\"\\;?><:| "))
+      return  rawText.componentsSeparatedByCharactersInSet(NSCharacterSet (charactersInString: "-,/\"\\?><:| "))
     }
     
     //MARK: Read Dictionary
     func readWordsFromCSUIC (fileName:String) -> [String] {
         let fileLocation = NSBundle.mainBundle().pathForResource(fileName, ofType: "txt")
-        var readWords = " ";
+        var readWords = " "
         do {
             readWords = try String(contentsOfFile: fileLocation!, encoding: NSUTF8StringEncoding)
         }
@@ -124,7 +130,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     func readAFFIN(fileName:String) -> Dictionary<String,Int> {
         let fileLocation = NSBundle.mainBundle().pathForResource(fileName, ofType: "txt")
-        var readWords = " ";
+        var readWords = " "
         do {
             readWords = try String(contentsOfFile: fileLocation!, encoding: NSUTF8StringEncoding)
         }
@@ -135,12 +141,12 @@ class ViewController: UIViewController, UITextViewDelegate {
         // Convert String into [String]
         let stringArray = readWords.characters.split{$0 == "\n"}.map(String.init)
         var sentimentDictionary:[String:Int] = [:]
-        var i = 0;
+        var i = 0
         for string in stringArray {
             if(i != 2476) {
                 let words = string.characters.split{$0 == "\t"}.map(String.init)
                 sentimentDictionary[words[0]] = Int(words[1])
-                i = i+1;
+                i = i+1
             }
         }
         return sentimentDictionary
@@ -174,7 +180,7 @@ class ViewController: UIViewController, UITextViewDelegate {
             }
             
         }
-        return sentimentScore;
+        return sentimentScore
     }
     func scoreCalculator(sentimentScore:Int) -> Double {
         var normalizeScore:Double = Double(sentimentScore)
@@ -205,7 +211,7 @@ class ViewController: UIViewController, UITextViewDelegate {
                 self.stopIndicator()
                 let normalizeScore = self.scoreCalculator(sentimentScore)
                 self.progressLoader(normalizeScore)
-                self.sentimentLabel.hidden = false
+                self.hideSentimentLable(false)
             }
         }
 
@@ -225,6 +231,9 @@ class ViewController: UIViewController, UITextViewDelegate {
         indicator.stopAnimating()
         view.alpha = 1
     }
+    func setProgress(angle:Double) {
+        sentimentProgress.angle = angle
+    }
     //MARK: Alerts
     func showAlert() {
         let alert = UIAlertController(title: "Alert", message: "Please type atleast 25 characters to start analysis!", preferredStyle: UIAlertControllerStyle.Alert)
@@ -237,7 +246,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBAction func findAspectButtonPressed(sender: AnyObject) {
         print("Find Aspects button pressed")
         if hasText() {
-            showIndicator();
+            showIndicator()
             dismissKeyboard()
             let tokenize = doTokenization(inputText.text.lowercaseString)
             let stopWords = readStopWords("Stopword-List")
@@ -248,6 +257,12 @@ class ViewController: UIViewController, UITextViewDelegate {
         else {
             showAlert()
         }
+    }
+    @IBAction func resetButtonPressed(sender: AnyObject) {
+        print("Reset button pressed")
+        setProgress(0)
+        resetText()
+        hideSentimentLable(true)
     }
 
 }
