@@ -261,7 +261,9 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBAction func resetButtonPressed(sender: AnyObject) {
         print("Reset button pressed")
         setProgress(0)
-        resetText()
+        if(inputText.text != "Type Here!") {
+            resetText()
+        }
         hideSentimentLable(true)
     }
 
